@@ -91,7 +91,17 @@ function App() {
     return (
         <div className="app">
             <header className="header card">
-                Kikoz
+                <h1>Kikoz</h1>
+                <div className="colors">
+                    {
+                        userList.map(o => o.type)
+                            //unique
+                            .filter((value, index, self) => self.indexOf(value) === index)
+                            .sort((a, b) => a - b)
+                            .map((type) => colors[type])
+                            .map((color) => <div className="user-type" style={{backgroundColor: color}}></div>)
+                    }
+                </div>
             </header>
             <div className="content">
                 <div className="add-form">
